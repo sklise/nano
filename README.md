@@ -414,6 +414,17 @@ alice.copy('rabbit', 'rabbit2', { overwrite: true }, function(err, _, headers) {
 bulk operations(update/delete/insert) on the database, refer to the
 [couchdb doc](http://wiki.apache.org/couchdb/HTTP_Bulk_Document_API).
 
+#### bulk insert
+
+``` js
+alice.bulk({docs:[{"name":"rabbit"},{"name":"rabbit2"}]},{method:"post"},function(err, body) {
+  if (!err) {
+    console.log(body);
+  }
+});
+```
+
+
 ### db.list([params], [callback])
 
 list all the docs in the database with optional query string additions `params`.
